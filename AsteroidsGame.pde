@@ -1,12 +1,21 @@
 Spaceship spaceship;
 Star[] stars;
+ArrayList<Asteroid> asteroids;
 
 public void setup() {
   size(500, 500);
   spaceship = new Spaceship();
   stars = new Star[1000]; 
+  asteroids = new ArrayList<Asteroid>();
   for (int i = 0; i < stars.length; i++) {
     stars[i] = new Star();
+
+  for (int i = 0; i < 10 ; i++) {
+    asteroids.add(new Asteroid());
+  }
+}
+
+
   }
 }
 
@@ -21,6 +30,18 @@ public void draw() {
 
   spaceship.move();
   spaceship.show();
+  for (int i = asteroids.size() - 1; i >= 0; i--) {
+     Asteroid asteroid = asteroids.get(i);
+    asteroid.move();
+    asteroid.show();
+float distance = dist((float)spaceship.myCenterX, (float)spaceship.myCenterY, (float)asteroid.myCenterX, (float)asteroid.myCenterY);
+if (distance < 30) { 
+asteroids.remove(i);
+}
+  } 
+  
+}
+
 }
 
 public void keyPressed() {

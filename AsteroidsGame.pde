@@ -30,7 +30,8 @@ public void draw() {
 
   spaceship.move();
   spaceship.show();
-  for (int i = asteroids.size() - 1; i >= 0; i--) {
+  for(int i = 0; i < asteroids.size(); i++){
+
      Asteroid asteroid = asteroids.get(i);
     asteroid.move();
     asteroid.show();

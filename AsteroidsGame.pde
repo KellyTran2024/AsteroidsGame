@@ -1,6 +1,7 @@
 Spaceship spaceship;
 Star[] stars;
 ArrayList<Asteroid> asteroids;
+ArrayList<Bullet> bullets = new ArrayList<Bullet>();
 
 public void setup() {
   size(500, 500);

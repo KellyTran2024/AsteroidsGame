@@ -47,18 +47,17 @@ public void draw() {
         bullet.move();
         bullet.show();
 
-        for (int j = asteroids.size() - 1; j >= 0; j--) {
-            Asteroid asteroid = asteroids.get(j);
-            float distance = dist((float) bullet.myCenterX, (float) bullet.myCenterY,
-                                  (float) asteroid.getCenterX(), (float) asteroid.getCenterY());
+      for (int j = 0; j < asteroids.size(); j++) {
+      Asteroid asteroid = asteroids.get(j);
+      float distance = dist((float) bullet.myCenterX, (float) bullet.myCenterY, (float) asteroid.myCenterX, (float) asteroid.myCenterY);
 
-            if (distance < 20) { 
-                asteroids.remove(j); 
-                bullets.remove(i); 
-                break;
-            }
-        }
+      if (distance < 20) {  
+        asteroids.remove(j);  
+        bullets.remove(i);   
+        break;  
+      }
     }
+  }
 }
 
 

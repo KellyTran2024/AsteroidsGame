@@ -74,6 +74,7 @@ public void keyPressed() {
     spaceship.accelerate(-0.1);
   } else if (key == 'h' || key == 'H') { 
     spaceship.hyperspace();
+    } else if (key == ' ' || key == 'S') {  
+    bullets.add(new Bullet(spaceship)); 
   }
 }
-

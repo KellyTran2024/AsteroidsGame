@@ -31,31 +31,32 @@ public void draw() {
 
   spaceship.move();
   spaceship.show();
- for (int i = 0; i < bullets.size(); i++) {
-    Bullet bullet = bullets.get(i);
-    bullet.move();
-    bullet.show();
 
-    
-    if (bullet.myCenterX < 0 || bullet.myCenterX > width || bullet.myCenterY < 0 || bullet.myCenterY > height) {
-      bullets.remove(i);
-    }
+for (int i = bullets.size() - 1; i >= 0; i--) {
+  Bullet bullet = bullets.get(i);
+  bullet.move();
+  bullet.show();
+  
+  if (bullet.myCenterX < 0 || bullet.myCenterX > width || bullet.myCenterY < 0 || bullet.myCenterY > height) {
+    bullets.remove(i);
   }
+}
+
   for(int i = 0; i < asteroids.size(); i++){
 
      Asteroid asteroid = asteroids.get(i);
     asteroid.move();
     asteroid.show();
 
- for (int j = 0; j < bullets.size(); j++) {
-      Bullet bullet = bullets.get(j);
-      float distance = dist((float) bullet.myCenterX, (float) bullet.myCenterY, (float) asteroid.myCenterX, (float) asteroid.myCenterY);
-      if (distance < 20) {  
-        asteroids.remove(i);
-        bullets.remove(j);
-        break;  
-      }
+ for (int j = bullets.size() - 1; j >= 0; j--) {
+    Bullet bullet = bullets.get(j);
+    float distance = dist((float) bullet.myCenterX, (float) bullet.myCenterY, (float) asteroid.myCenterX, (float) asteroid.myCenterY);
+    if (distance < 20) {  
+      asteroids.remove(i);
+      bullets.remove(j);
+      break;  
     }
+  }
 
 float distance = dist((float)spaceship.myCenterX, (float)spaceship.myCenterY, (float)asteroid.myCenterX, (float)asteroid.myCenterY);
 if (distance < 30) { 
